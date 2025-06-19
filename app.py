@@ -3,7 +3,7 @@ import requests
 import pickle
 import numpy as np
 import sklearn
-from xgboost import XGBClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
