@@ -54,7 +54,6 @@ def predict():
             month_sep = 0
             month_dec = 0
             month_feb = 0
-            month_nov = 0 
             month_jun = 0
             month_jul = 0
             month_may = 0
@@ -64,7 +63,6 @@ def predict():
             month_sep = 0
             month_dec = 0
             month_feb = 0
-            month_nov = 0 
             month_jun = 0
             month_jul = 0
             month_may = 0
@@ -74,7 +72,6 @@ def predict():
             month_sep = 1
             month_dec = 0
             month_feb = 0
-            month_nov = 0 
             month_jun = 0
             month_jul = 0
             month_may = 0
@@ -84,7 +81,6 @@ def predict():
             month_sep = 0
             month_dec = 1
             month_feb = 0
-            month_nov = 0 
             month_jun = 0
             month_jul = 0
             month_may = 0
@@ -94,17 +90,6 @@ def predict():
             month_sep = 0
             month_dec = 0
             month_feb = 1
-            month_nov = 0 
-            month_jun = 0
-            month_jul = 0
-            month_may = 0
-        elif(month == 'November'):
-            month_mar = 0
-            month_oct = 0
-            month_sep = 0
-            month_dec = 0
-            month_feb = 0
-            month_nov = 1 
             month_jun = 0
             month_jul = 0
             month_may = 0
@@ -114,7 +99,6 @@ def predict():
             month_sep = 0
             month_dec = 0
             month_feb = 0
-            month_nov = 0 
             month_jun = 1
             month_jul = 0
             month_may = 0
@@ -124,7 +108,6 @@ def predict():
             month_sep = 0
             month_dec = 0
             month_feb = 0
-            month_nov = 0 
             month_jun = 0
             month_jul = 1
             month_may = 0
@@ -134,7 +117,6 @@ def predict():
             month_sep = 0
             month_dec = 0
             month_feb = 0
-            month_nov = 0 
             month_jun = 0
             month_jul = 0
             month_may = 1
@@ -144,7 +126,6 @@ def predict():
             month_sep = 0
             month_dec = 0
             month_feb = 0
-            month_nov = 0 
             month_jun = 0
             month_jul = 0
             month_may = 0
@@ -157,7 +138,6 @@ def predict():
             job_student = 0
             job_management = 0
             job_unemployed  = 0
-            job_housemaid = 0
             job_entrepreneur = 0
             job_services = 0
             job_blue_collar = 0
@@ -166,7 +146,6 @@ def predict():
             job_student = 1
             job_management = 0
             job_unemployed  = 0
-            job_housemaid = 0
             job_entrepreneur = 0
             job_services = 0
             job_blue_collar = 0        
@@ -175,7 +154,6 @@ def predict():
             job_student = 0
             job_management = 1
             job_unemployed  = 0
-            job_housemaid = 0
             job_entrepreneur = 0
             job_services = 0
             job_blue_collar = 0
@@ -184,25 +162,14 @@ def predict():
             job_student = 0
             job_management = 0
             job_unemployed  = 1
-            job_housemaid = 0
             job_entrepreneur = 0
             job_services = 0
             job_blue_collar = 0 
-        elif(job == 'Housemaid'):
-            job_retired = 0
-            job_student = 0
-            job_management = 0
-            job_unemployed  = 0
-            job_housemaid = 1
-            job_entrepreneur = 0
-            job_services = 0
-            job_blue_collar = 0
         elif(job == 'Entrepreneur'):
             job_retired = 0
             job_student = 0
             job_management = 0
             job_unemployed  = 0
-            job_housemaid = 0
             job_entrepreneur = 1
             job_services = 0
             job_blue_collar = 0 
@@ -211,7 +178,6 @@ def predict():
             job_student = 0
             job_management = 0
             job_unemployed  = 0
-            job_housemaid = 0
             job_entrepreneur = 0
             job_services = 1
             job_blue_collar = 0
@@ -220,7 +186,6 @@ def predict():
             job_student = 0
             job_management = 0
             job_unemployed  = 0
-            job_housemaid = 0
             job_entrepreneur = 0
             job_services = 0
             job_blue_collar = 1
@@ -229,7 +194,6 @@ def predict():
             job_student = 0
             job_management = 0
             job_unemployed  = 0
-            job_housemaid = 0
             job_entrepreneur = 0
             job_services = 0
             job_blue_collar = 0
@@ -283,8 +247,6 @@ def predict():
         else:
             default_yes = 0
 
-        day = int(request.form['Day'])
-
         loan = request.form['Loan']
         if(loan == 'Yes'):
             loan_yes = 1
@@ -302,41 +264,39 @@ def predict():
         prediction=model.predict([[duration, 
                                 poutcome_success, 
                                 contacted_before_yes,
-                                month_mar, 
+                                previous,
                                 month_oct, 
                                 month_sep, 
-                                previous, 
+                                month_mar,
+                                education_tertiary,                                
                                 job_retired,
+                                marital_single,
                                 job_student, 
                                 month_dec, 
-                                education_tertiary, 
-                                marital_single,
                                 balance, 
-                                month_feb, 
-                                job_management, 
+                                month_feb,
                                 poutcome_other, 
+                                job_management,
                                 age,
                                 job_unemployed, 
-                                contact_telephone, 
-                                education_unknown,
-                                month_nov, 
-                                job_housemaid, 
-                                month_jun, 
+                                contact_telephone,
                                 job_entrepreneur,
-                                default_yes, 
-                                job_services, 
-                                day, 
-                                month_jul,
-                                education_secondary, 
-                                marital_married, 
+                                month_jun,
+                                job_services,
+                                default_yes,  
+                                month_jul, 
+                                education_secondary,
+                                marital_married,
                                 loan_yes,
                                 job_blue_collar, 
-                                campaign, 
-                                month_may, 
+                                campaign,
+                                month_may,
                                 housing_yes,
-                                contact_unknown, 
-                                poutcome_unknown
+                                poutcome_unknown,
+                                education_unknown,
+                                contact_unknown
                                 ]])
+                                
         if prediction[0] == 1:
             text = "The Client is Likely to Subscribe to a Term Deposit"
         else:
