@@ -281,7 +281,7 @@ def predict():
                                  education_secondary, 
                                  marital_married, 
                                  loan_yes,
-                                 job_blue-collar, 
+                                 job_blue_collar, 
                                  campaign, 
                                  month_may, 
                                  housing_yes,
