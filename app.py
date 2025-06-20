@@ -226,19 +226,12 @@ def predict():
         education = request.form['Education Level']
         if(education == 'Tertiary'):
             education_tertiary = 1
-            education_unknown = 0
-            education_secondary = 0
-        elif(education == 'Unknown'):
-            education_tertiary = 0
-            education_unknown = 1
             education_secondary = 0
         elif(education == 'Secondary'):
             education_tertiary = 0
-            education_unknown = 0
             education_secondary = 1
         else:
             education_tertiary = 0
-            education_unknown = 0
             education_secondary = 0
 
         default = request.form['Default']
@@ -261,40 +254,39 @@ def predict():
         else:
             housing_yes = 0
 
-        prediction=model.predict([[duration, 
-                                poutcome_success, 
-                                contacted_before_yes,
-                                previous,
-                                month_oct, 
-                                month_sep, 
-                                month_mar,
-                                education_tertiary,                                
-                                job_retired,
-                                marital_single,
-                                job_student, 
-                                month_dec, 
-                                balance, 
-                                month_feb,
-                                poutcome_other, 
-                                job_management,
-                                age,
-                                job_unemployed, 
-                                contact_telephone,
-                                job_entrepreneur,
-                                month_jun,
-                                job_services,
-                                default_yes,  
-                                month_jul, 
-                                education_secondary,
-                                marital_married,
-                                loan_yes,
-                                job_blue_collar, 
-                                campaign,
-                                month_may,
-                                housing_yes,
-                                poutcome_unknown,
-                                education_unknown,
-                                contact_unknown
+        prediction=model.predict([[duration,
+                                 poutcome_success,
+                                 contacted_before_yes,
+                                 previous,
+                                 month_oct, 
+                                 month_sep, 
+                                 month_mar, 
+                                 education_tertiary,
+                                 job_retired,
+                                 marital_single, 
+                                 job_student, 
+                                 month_dec,
+                                 balance, 
+                                 month_feb, 
+                                 poutcome_other, 
+                                 job_management,
+                                 age,
+                                 job_unemployed, 
+                                 contact_telephone, 
+                                 job_entrepreneur,
+                                 month_jun, 
+                                 job_services, 
+                                 default_yes, 
+                                 month_jul,
+                                 education_secondary, 
+                                 marital_married, 
+                                 loan_yes,
+                                 job_blue-collar, 
+                                 campaign, 
+                                 month_may, 
+                                 housing_yes,
+                                 poutcome_unknown, 
+                                 contact_unknown
                                 ]])
                                 
         if prediction[0] == 1:
